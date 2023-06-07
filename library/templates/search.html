@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Search{% endblock %}
+{% block content %}
+<h3>SEARCH BOOK</h3>
+  <form class="d-flex" method="POST" action="{% url 'book:search' %}">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" name="srh" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-danger" type="submit">Search</button>
+      </form>
+{% if m %}
+<table class="table table-bordered">
+    <tr>
+        <th>COVER IMAGE</th>
+        <th>TITLE</th>
+        <th>AUTHOR</th>
+        <th>PRICE</th>
+        <th>PDF</th>
+        <th>VEIW</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+
+    </tr>
+    {% for i in m %}
+    <tr>
+        <td><img style="height:100px; width:80px;" src="{{i.cover.url}}"></td>
+        <td>{{i.title}}</td>
+        <td>{{i.author}}</td>
+        <td>{{i.price}}</td>
+        <td><a href="{{i.pdf.url}}">Document</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% if messages %}
+{% for m in messages %}
+<ul class="messages">
+    <li>{{m}}</li>
+</ul>
+{% endfor %}
+{% endif %}
+
+{% endblock %}

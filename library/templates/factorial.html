@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <label for="exampleFormControlInput1">ENTER THE NUMBER</label>
+    <input type="text" class="form-control" name="n" placeholder="pls enter the number">
+  </div>
+<div class="form-group">
+    <input type="submit" class="form-control">
+  </div>
+</form>
+{% if fact %}
+<h3>factorial is:{{fact}}</h3>
+{% endif %}
+{% endblock %}

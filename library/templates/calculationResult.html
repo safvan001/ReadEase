@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if sum %}
+    <h3>SUM IS:{{sum}}</h3>
+{% endif %}
+{% if product %}
+    <h3>PRODUCT IS:{{product}}</h3>
+{% endif %}
+{% if quotient %}
+    <h3>QUOTIENT IS:{{quotient}}</h3>
+{% endif %}
+{% if difference %}
+    <h3>DIFFERENCE IS:{{difference}}</h3>
+{% endif %}
+{% endblock %}
